@@ -36,7 +36,8 @@ RUNNING = False
 
 # All the codes right here so we don't need to fetch anything. This is also in web/json/agents.json so make changes in both places.
 # The reason this is here at all is because I failed to fetch from localhost:port/json/agents.json from within this file.
-AGENT_CODES = { 
+AGENT_CODES = {
+    "Random": "random",
     "Jett": "add6443a-41bd-e414-f6ad-e58d267f4e95",
     "Reyna": "a3bfb853-43b2-7238-a4f1-ad90e9e46bcc",
     "Raze": "f94c3b30-42be-e959-889c-5aa313dba261",
