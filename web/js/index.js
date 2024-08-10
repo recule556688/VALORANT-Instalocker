@@ -98,14 +98,33 @@ function initiateSkewScroll() {
 
 }
 
-function pickAgent( agent ) {
+function pickAgent(agent) {
+  // Update the status for both random and specific agent selections
+  document.getElementById("status").innerText = "WAITING FOR PRE-GAME";
 
-    document.getElementById('status').innerText = "WAITING FOR PRE-GAME"
-    document.getElementById('chosen-agent').innerText = agent.toUpperCase();
-    document.getElementById('agent-preview').src = `./assets/images/agent-previews/${ agent.toLowerCase()}-preview.gif`;
+  if (agent === "Random") {
+    // Fetch the list of agents
+    fetch("./json/agents.json")
+      .then((response) => response.json())
+      .then((agentJSON) => {
+        // Get the list of agents excluding "Random"
+        let agents = Object.keys(agentJSON).filter((a) => a !== "Random");
+
+        // Randomly select an agent from the list
+        let randomAgent = agents[Math.floor(Math.random() * agents.length)];
+
+        // Simulate the selection of the randomly chosen agent
+        pickAgent(randomAgent);
+      });
+  } else {
+    // Existing logic for selecting an agent
+    document.getElementById("chosen-agent").innerText = agent.toUpperCase();
+    document.getElementById(
+      "agent-preview"
+    ).src = `./assets/images/agent-previews/${agent.toLowerCase()}-preview.gif`;
     showStopButton();
-    eel.try_lock(agent);
-
+    eel.try_lock(agent); // Trigger the eel function to lock the agent
+  }
 }
 
 function showStopButton() {
