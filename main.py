@@ -21,8 +21,8 @@ SCREEN_DIMENSIONS = (
 )
 
 # Socials, don't touch! >:(
-INSTAGRAM = "https://www.instagram.com/kronsuki/"
-GITHUB = "https://github.com/SuppliedOrange/"
+INSTAGRAM = "https://www.instagram.com/_getkarma_/"
+GITHUB = "https://github.com/recule556688"
 
 # Customize this to your preference
 LOOP_DELAY = 3 # Do not set this to less than 3 unless you know what you're doing.
@@ -78,7 +78,6 @@ if DEBUG:
 """
 FUNCTIONS
 """
-    
 def get_region():
     """
     Get the region code of the current game.
@@ -87,7 +86,6 @@ def get_region():
 
     with open( os.path.join(os.getenv("LOCALAPPDATA"), R"VALORANT\Saved\Logs\ShooterGame.log"), "rb",) as f:
         lines = f.readlines()
-    
     logger.debug(f"Lines from ShooterGame.log: {len(lines)}")
 
     # Region finder Test 1
@@ -107,11 +105,11 @@ def get_region():
                 region = line.split(b"config/")[1].split(b"]")[0]
                 region = region.decode()
                 break
-    
+
     logger.debug(f"Region: {region}")
-    
+
     return region
-        
+
 
 def errorAlert(line1, line2, time):
     """
