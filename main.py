@@ -96,7 +96,7 @@ def get_region():
                 region = line.split(b"regions/")[1].split(b"]")[0]
                 region = region.decode()
                 break
-                
+
     # Region finder Test 2
     if not region:
         for line in lines:
@@ -143,7 +143,7 @@ def try_lock(agent):
     global RUNNING
     global AGENT
     global SEEN_MATCHES
-    
+
     logger.debug("Attempting to begin locking.")
 
     # if valorant isnt on, mock the user
@@ -168,7 +168,7 @@ def try_lock(agent):
             stop_lock()
 
         return errorAlert("COULD NOT FIND REGION", "TRY LOGGING IN AGAIN", 5)
-    
+
     if ( RUNNING ): # if we're already attempting to select an agent, simply change what agent we're trying to select
         logger.debug(f"Agent changed to {agent}")
         AGENT = AGENT_CODES[agent]
@@ -265,10 +265,10 @@ def check_chrome_installed():
     logger.debug("Checking for chrome..")
 
     def get_drives():
-        
+
         logger.debug("Getting all drives")
         import win32api # type: ignore because pywin32 fulfils this.
-        
+
         drives = win32api.GetLogicalDriveStrings()
         logger.debug(f"Drives: {drives}")
 
@@ -282,7 +282,7 @@ def check_chrome_installed():
         if os.path.exists(CHROME_PATH): 
             logger.debug(f"Found chrome at {CHROME_PATH}")
             return True
-    
+
     logger.debug("Could not find chrome. Launching with default browser.")
     return False
 
