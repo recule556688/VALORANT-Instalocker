@@ -28,6 +28,7 @@ GITHUB = "https://github.com/recule556688"
 LOOP_DELAY = 3 # Do not set this to less than 3 unless you know what you're doing.
 LOCK_DELAY = 0
 HOVER_DELAY = 0
+RETRY_DELAY = 1
 
 # Used by the iterating runtime code
 AGENT = None
@@ -236,12 +237,11 @@ def try_lock(agent):
                 client.pregame_lock_character(AGENT)
                 logger.debug("Locking agent.")
 
-                stop_lock()
-                logger.debug("Stopped locking loop since we're done.")
-
                 eel.changeStatus("LOCKED")
+                logger.debug("Agent locked successfully.")
 
-                return True
+                # Continue the loop to keep re-locking if necessary
+                continue
 
         except Exception as e:
             logger.error(str(e))
@@ -249,8 +249,10 @@ def try_lock(agent):
                 errorAlert("ERROR", e, 12)
                 stop_lock()
                 return
-
-
+            else:
+                logger.debug("Retrying to lock the agent...")
+                eel.changeStatus("RELOCKING")
+                eel.sleep(RETRY_DELAY)  # Add a delay before retrying
 @eel.expose
 def open_instagram():
     webbrowser.open(INSTAGRAM)
