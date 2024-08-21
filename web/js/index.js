@@ -17,7 +17,7 @@ function fillAgentList() {
     fetch("./json/agents.json")
     .then((response) => response.json())
     .then((agentJSON) => {
-        
+
         let agents = Object.keys( agentJSON );
 
         for (const agent of agents) {
@@ -27,11 +27,11 @@ function fillAgentList() {
             agent_div.id = agent;
 
             agent_div.setAttribute('onclick', `pickAgent('${agent}')`);
-    
+
             let agent_div_thumbnail = document.createElement("img");
             agent_div_thumbnail.className = "agent-thumb";
             agent_div_thumbnail.src = `./assets/images/agent-banners/${ agent.toLowerCase() }.png`;
-    
+
             let agent_div_name = document.createElement("p");
             agent_div_name.innerText = agent;
 
@@ -55,7 +55,7 @@ function alertUser(statusText = '', chosenAgentText = '') {
     agent_preview.src ='./assets/images/slurp.gif';
     status.innerText = statusText;
     chosenAgent.innerText = chosenAgentText;
-    
+
 }
 
 function askUserToChooseAgent() {
@@ -63,7 +63,7 @@ function askUserToChooseAgent() {
     let status = document.getElementById('status');
     let chosenAgent = document.getElementById('chosen-agent');
     let agent_preview = document.getElementById('agent-preview');
- 
+
     agent_preview.src ='./assets/images/slurp.gif';
     status.innerText = "CHOOSE AN AGENT";
     chosenAgent.innerText = "..."
@@ -89,7 +89,7 @@ function initiateSkewScroll() {
         if (speed > 10) speed = 10;
         if (speed < -10) speed = -10;
         section.style.transform = `skewY(${ speed }deg)`;
-        
+
         currentPos = newPos;
         requestAnimationFrame(update);
     }
