@@ -65,7 +65,7 @@ AGENT_CODES = {
     "Clove": "1dbf2edd-4729-0984-3115-daa5eed44993"
 }
 
-# Enable or disable debugging through an arg.
+# Enable or disable debugging through an arg
 DEBUG = any( ['--debug' in arg.lower() for arg in argv] )
 logger = logging.getLogger("VALORANT_INSTALOCKER" + __name__)
 
