@@ -45,15 +45,17 @@ jobs:
       env:
         TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
       with:
-        tag_name: v1.0.${{ github.run_number }}
-        release_name: Karma Lock.${{ github.run_number }}
-        draft: false
-        prerelease: false
+        tag_name: Karma locker ${{ github.run_number }}
+        release_name: Karma locker ${{ github.run_number }}
+        body: |
+            New release of VALORANT Karmalocker automatically built by GitHub Actions.
+        draft: true
+        prerelease: true
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./dist/VALORANT Karmalocker.exe
