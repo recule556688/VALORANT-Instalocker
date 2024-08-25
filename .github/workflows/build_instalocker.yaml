@@ -46,7 +46,7 @@ jobs:
         TOKEN_GIT: ${{ secrets.TOKEN_GIT }}
       with:
         tag_name: v1.0.${{ github.run_number }}
-        release_name: Release v1.0.${{ github.run_number }}
+        release_name: Karma Lock.${{ github.run_number }}
         draft: false
         prerelease: false
 
@@ -57,5 +57,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./dist/VALORANT Karmalocker.exe
-        asset_name: VALORANT Karmalocker.exe
+        asset_name: VALORANT Karmalocker${{ github.run_number }}.exe
         asset_content_type: application/octet-stream
