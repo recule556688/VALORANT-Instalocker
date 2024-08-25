@@ -3,8 +3,14 @@ name: Build VALORANT Karmalocker on Windows
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'main.py'
+      - 'web/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'main.py'
+      - 'web/**'
 
 jobs:
   build:
@@ -18,20 +24,19 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10.10'  # Specify the Python version you need
+        python-version: '3.10.10'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pywin32
 
     - name: Replace bottle.py
       run: python install_and_build/replace_bottle.py
 
     - name: Build application
       run: |
-        python -m eel main.py web --onefile --noconsole --icon=./web/favicon.ico --name="VALORANT Karmalocker" --paths ./venv/Lib/site-packages
+        python -m eel main.py web --onefile --noconsole --icon=./web/favicon.ico --name="VALORANT Karmalocker BETA" --paths ./venv/Lib/site-packages
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
@@ -48,7 +53,7 @@ jobs:
         tag_name: KarmaLock_${{ github.run_number }}
         release_name: KarmaLock_${{ github.run_number }}
         body: |
-          New release of VALORANT Karmalocker automatically built by GitHub Actions.
+          New Beta release of VALORANT Karmalocker automatically built by GitHub Actions.
         draft: true
         prerelease: true
 
@@ -58,6 +63,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/VALORANT Karmalocker.exe
+        asset_path: ./dist/VALORANT Karmalocker BETA.exe
         asset_name: VALORANT Karmalocker${{ github.run_number }}.exe
         asset_content_type: application/octet-stream
