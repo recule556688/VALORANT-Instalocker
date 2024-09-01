@@ -20,7 +20,7 @@
 <br>
 
 ## 📩 Installation
-[Link]: https://github.com/SuppliedOrange/VALORANT-Instalocker/releases/latest 'Latest Release'
+[Link]: https://github.com/recule556688/VALORANT-Instalocker/releases/latest 'Latest Release'
 [Button Icon]: https://img.shields.io/badge/Releases-EF2D5E?style=for-the-badge&logoColor=white&logo=DocuSign
 [![Button Icon]][Link]
 
@@ -54,7 +54,7 @@ Even if Riot happens to somehow detect this, you will only recieve a 7 day ban f
 
 <br>
 
-## 🛠 Building 
+## 🛠 Building
 
 - For your convinience, simply use `install.bat` and then `build.bat` after downloading the repository for a smooth, automated process! After that, you're done. If you insist otherwise, follow ahead.
 
@@ -68,7 +68,7 @@ Even if Riot happens to somehow detect this, you will only recieve a 7 day ban f
     - Run `python -m eel main.py web --onefile --noconsole --icon=./web/favicon.ico --name="VALORANT Instalocker"`
     - A distributable should appear in ./dist
 
-- Running with python: 
+- Running with python:
     <br>
     - Run `python main.py`
 
