@@ -100,18 +100,22 @@ Even if Riot happens to somehow detect this, you will only recieve a 7 day ban f
 
 ## 🤷‍♀️ Support / Feedback:
 
-- You can hit me up on Discord [@lternatively](https://discord.com/users/735322421862727760)
+- You can hit me up on Discord [@karmagotkarmed](https://discord.com/users/287307876366548992)
 
 - If your issue is "cannot initialize a valclient", follow this method to report it https://github.com/SuppliedOrange/VALORANT-Instalocker/issues/12
 
 - For other issues, use the `--debug` parameter to log everything that happens when you try to instalock then make an issue:
   [Method 1](https://i.imgur.com/InEbwdz.mp4) [Method 2](https://i.imgur.com/R5ElrrP.png) <br>
-  
+
 - Sometimes the instalocker waits for a few seconds after the loading screen to instalock, this is because it scans for the pre-game screen every 3 seconds. You can change the loop delay in the code for yourself.
 
 #### Notes
-+ I do not plan on developing this further, but I will maintain the code and update agents- this will continue to work.
-+ I am also not responsible for **misuse** of this application, I do not condone using this and this only exists as an educational resource.
+
+- This application is not affiliated with Riot Games or VALORANT.
+
+- I am not responsible for any **bans** or **suspensions** that may occur from using this application.
+
+- I am also not responsible for **misuse** of this application, I do not condone using this and this only exists as an educational resource.
 
 <br>
 
